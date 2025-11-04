@@ -25,7 +25,12 @@ function App() {
 
   return (
     <>
-    {/* TRANSFORMAR EM COMPONENTES E ORGANIZAR A ARQUITETURA */}
+    {/* 
+    TAREFAS DA EQUIPE:
+    1. Ajustar arquitetura conforme descrito no README (components, services, hooks, pages)
+    2. configurar um .env com a chave da api e fazer a chamada dele no services (fazer um arquivo api)
+    3. desenvolver a pagina web conforme wireframe
+    */}
       <div className='container'>
         <input 
           type="text"
