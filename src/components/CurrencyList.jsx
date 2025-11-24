@@ -1,18 +1,25 @@
-export default function CurrencyList({ rates, loading, error }) {
-    if (loading) return <p className="info"> Carregando Cotações... </p>;
-    if (error) return <p className="error"> {error} </p>;
-    if (!rates) return null;
+import CurrencyCard from "./CurrencyCard";
 
-
-    const mainCurrencies = ['USD', 'BRL', 'EUR', 'JPY', 'GBP', 'CHF', 'CAD', 'AUD'];
-
-    return (
-        <ul className="currency-list">
-            {mainCurrencies.map(currency => (
-                <li key={currency}>
-                    <strong>{currency}</strong> {rates[currency]?.toFixed(4) || 'N/A'}
-                </li>
-            ))}
-        </ul>
-    );
+export default function CurrencyList({ currencies }) {
+  return (
+    <div style={styles.container}>
+      {currencies.map((c) => (
+        <CurrencyCard
+          key={c.code}
+          code={c.code}
+          name={c.name}
+          value={c.value}
+        />
+      ))}
+    </div>
+  );
 }
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    width: "100%",
+  },
+};
