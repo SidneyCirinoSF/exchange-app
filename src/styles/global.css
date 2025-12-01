@@ -9,27 +9,3 @@
 html, body {
   height: 100%;
 }
-
-/* Remover decoração padrão de links */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Remover bullets de listas */
-ul, ol {
-  list-style: none;
-}
-
-/* Padrão para botões sem estilo visual */
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Padrão para inputs/textareas */
-input, textarea {
-  border: none;
-  outline: none;
-}

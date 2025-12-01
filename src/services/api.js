@@ -9,10 +9,8 @@ const getCurrencyRates = async (baseCurrency) => {
 
   try {
     const response = await axios.get(url);
-    console.log('Dados recebidos:', response.data);
     return response.data;
   } catch (err) {
-    console.error('Erro na API:', err.response?.data || err.message);
     throw err;
   }
 };
