@@ -1,11 +1,8 @@
-/* Reset básico para padronizar comportamento */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+@import "tailwindcss";
 /* Garantir altura 100% do viewport */
-html, body {
-  height: 100%;
+html,
+body {
+  display: flex;
+  justify-content: center;
+  background: white;
 }
