@@ -7,6 +7,7 @@ function Home() {
     const [amount, setAmount] = useState('')
     const [baseCurrency, setBaseCurrency] = useState('')
     const { data, loading, error } = useCurrencyRates(baseCurrency)
+    const [showAllCurrencies, setShowAllCurrencies] = useState(false)
 
     const handleChange = (e) => {
         // Só att o estado da baseCurrency (que dispara a API) quando tiver 3 letras, isso evita varias chamadas.
@@ -27,8 +28,7 @@ function Home() {
                 value: value * amount,
                 name: currenciesCardNames[code]
             }));
-
-        return rates;
+        return showAllCurrencies ? rates : rates.slice(0, 8);
     })();
 
     return (
@@ -58,6 +58,22 @@ function Home() {
             {loading && <p>Carregando cotações...</p>}
             {error && <p className="error">Erro: {error}</p>}
             {data && <CurrencyList currencies={currencyArray} />}
+            {data && currenciesCards.length > 3 && (
+                <button
+                    onClick={() => setShowAllCurrencies(!showAllCurrencies)}
+                    style={{
+                        marginTop: '10px',
+                        padding: '8px 16px',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '4px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    {showAllCurrencies ? 'Mostrar menos moedas' : 'Mostrar todas as moedas'}
+                </button>
+            )}
         </div>
     )
 }
@@ -73,4 +89,26 @@ const currenciesCardNames = {
     CHF: "Franco Suíço",
     CAD: "Dólar Canadense",
     AUD: "Dólar Australiano",
+    CNY: "Renminbi Chinês",
+    HKD: "Dólar de Hong Kong",
+    SGD: "Dólar de Singapura",
+    SEK: "Coroa Sueca",
+    KRW: "Won Sul-Coreano",
+    NOK: "Coroa Norueguesa",
+    NZD: "Dólar Neozelandês",
+    INR: "Rúpia Indiana",
+    MXN: "Peso Mexicano",
+    TWD: "Novo Dólar Taiwanês",
+    ZAR: "Rand Sul-Africano",
+    DKK: "Coroa Dinamarquesa",
+    PLN: "Złoty Polonês",
+    THB: "Baht Tailandês",
+    ILS: "Novo Shekel Israelense",
+    IDR: "Rupia Indonésia",
+    CZK: "Coroa Tcheca",
+    AED: "Dirham dos Emirados Árabes",
+    TRY: "Lira Turca",
+    HUF: "Forint Húngaro",
+    CLP: "Peso Chileno",
+    SAR: "Riyal Saudita"
 }
