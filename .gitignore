@@ -23,5 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-
-.env
+# ===== VIRTUALENV =====
+venv/
+.env/
+ENV/
+.venv/
+env/
+env.bak/
+venv.bak/
